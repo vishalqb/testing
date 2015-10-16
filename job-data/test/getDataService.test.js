@@ -1,4 +1,4 @@
-describe('getData', function () {
+describe('getDataService', function () {
     var mockResource, httpBackend, result;
     beforeEach(module('app'));
     describe('load images', function() {
@@ -21,7 +21,7 @@ describe('getData', function () {
                     return result;
                 }
             );
-            result = mockResource.retrieve('http://nodejs-qbjsstudy.rhcloud.com/api/get_job_data');
+            mockResource.retrieve('http://nodejs-qbjsstudy.rhcloud.com/api/get_job_data');
             httpBackend.flush();
             expect(result.name).to.equal('success');
         }));

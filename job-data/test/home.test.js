@@ -23,9 +23,6 @@ describe('homeController', function () {
     it('should exist homecontroller', function() {
         expect(homeController).to.exist;
     });
-    it('should do the api calling with url', function() {
-        expect(getDataMock.retrieve.called).to.be.true;
-    });
     it('assigns getdatamock.images to scope.images', function() {
         expect(scope.images).to.equal(getDataMock.images);
     });

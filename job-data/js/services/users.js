@@ -3,6 +3,6 @@ app.factory("users", function() {
     var user = {};
     user.name = "user";
     user.password = "password";
-    user.loggedin = false;
+    user.loggedin = "false";
     return user;
 });

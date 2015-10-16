@@ -34,6 +34,10 @@ describe('detailsController', function () {
     it('type should be equal to selected', function() {
         expect(scope.type).to.equal(getDataMock.selected);
     });
+    it('should do the api calling with url', function() {
+        expect(getDataMock.retrieve.calledWith('http://nodejs-qbjsstudy.rhcloud.com/api/get_job_data')).to.be.true;
+    });
+
     it('should display the details', function() {
         scope.show(getDataMock.data[0].details);
         expect(scope.visible).to.be.true;

@@ -19,15 +19,15 @@ app.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $u
     $urlRouterProvider.otherwise("/");
 }]);
 
-app.run(["$rootScope", "$state","users", function ($rootScope, $state, users) {
-    $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
-        console.log("entered");
-        if ((users.loggedin)) {
-           console.log(fromState);
-           event.preventDefault();
-           $state.go("login");
-        } else {
-           $state.go("home");
-       }
-    });
-}]);
+//app.run(["$rootScope","$location","$state","users", function($rootScope,$location,$state,users){
+//    $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
+//        if (users.loggedin==="false"  && toState.url==="/home") {
+//            event.preventDefault();
+//            $location.path("/");
+//        } else if(users.loggedin==="false" && toState.url==="/details"){
+//            event.preventDefault();
+//            $location.path("/");
+//       }
+//    });
+//
+//}]);
