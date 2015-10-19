@@ -39,9 +39,8 @@ describe('loginController', function () {
     });
     describe('state change listener', function(){
         it('should prevent direct entry to home page', function() {
-            toState.url = "/home";
-            rootScope.$broadcast('$stateChangeStart', event, toState);
-            expect(locationMock.path.calledWith('/')).to.be.true;
+rootScope.$broadcast('$stateChangeStart', event, toState);
+  expect(scope.route).to.equal('success');
         });
     });
 });

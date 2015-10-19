@@ -1,5 +1,6 @@
 app.controller("loginController", ["$scope", "$location","users","$state","$rootScope", function ($scope, $location,users,$state,$rootScope) {
     "use strict";
+    $scope.route = "failure";
     $scope.validate = function () {
         if ($scope.username === users.name && $scope.password === users.password) {
             users.loggedin = "true";
@@ -11,6 +12,7 @@ app.controller("loginController", ["$scope", "$location","users","$state","$root
     };
     
     $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
+        $scope.route = "success";
         if (users.loggedin==="false"  && toState.url==="/home") {
             event.preventDefault();
             $location.path("/");
