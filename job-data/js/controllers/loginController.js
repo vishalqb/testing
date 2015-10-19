@@ -17,6 +17,8 @@ app.controller("loginController", ["$scope", "$location","users","$state","$root
     };
     
     $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
+        console.log('entered');
+        console.log(users.loggedin);
         vm.route = "success";
         if (users.loggedin==="false"  && toState.url==="/home") {
             event.preventDefault();

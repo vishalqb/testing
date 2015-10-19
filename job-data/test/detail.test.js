@@ -29,7 +29,7 @@ describe('detailsController', function () {
     });
     it('assigns jobdetails to data from the service', function() {
         detailsController.jobDetails = getDataMock.data;
-        expect(detailsController.jobDetails).to.exist;
+        expect(detailsController.jobDetails).to.equal(getDataMock.data);
     });
     it('type should be equal to selected', function() {
         expect(detailsController.type).to.equal(getDataMock.selected);
