@@ -25,28 +25,28 @@ describe('detailsController', function () {
         expect(detailsController).to.exist;
     });
     it('assigns visible to false', function() {
-        expect(scope.visible).to.not.be.true;
+        expect(detailsController.visible).to.not.be.true;
     });
     it('assigns jobdetails to data from the service', function() {
-        scope.jobDetails = getDataMock.data;
-        expect(scope.jobDetails).to.exist;
+        detailsController.jobDetails = getDataMock.data;
+        expect(detailsController.jobDetails).to.exist;
     });
     it('type should be equal to selected', function() {
-        expect(scope.type).to.equal(getDataMock.selected);
+        expect(detailsController.type).to.equal(getDataMock.selected);
     });
     it('should do the api calling with url', function() {
         expect(getDataMock.retrieve.calledWith('http://nodejs-qbjsstudy.rhcloud.com/api/get_job_data')).to.be.true;
     });
 
     it('should display the details', function() {
-        scope.show(getDataMock.data[0].details);
-        expect(scope.visible).to.be.true;
-        expect(scope.employer).to.exist;
-        expect(scope.lastDate).to.exist;
-        expect(scope.postedDate).to.exist;
-        expect(scope.expLevel).to.exist;
-        expect(scope.expYrs).to.exist;
-        expect(scope.vacancy).to.exist;
-        expect(scope.qualification).to.exist;
+        detailsController.show(getDataMock.data[0].details);
+        expect(detailsController.visible).to.be.true;
+        expect(detailsController.employer).to.exist;
+        expect(detailsController.lastDate).to.exist;
+        expect(detailsController.postedDate).to.exist;
+        expect(detailsController.expLevel).to.exist;
+        expect(detailsController.expYrs).to.exist;
+        expect(detailsController.vacancy).to.exist;
+        expect(detailsController.qualification).to.exist;
     });
 });

@@ -24,7 +24,7 @@ describe('homeController', function () {
         expect(homeController).to.exist;
     });
     it('assigns getdatamock.images to scope.images', function() {
-        expect(scope.images).to.equal(getDataMock.images);
+        expect(homeController.images).to.equal(getDataMock.images);
     });
     it('getdatamock.selected should have the value initial at first', function() {
         expect(getDataMock.selected).to.equal('initial');

@@ -34,13 +34,14 @@ describe('loginController', function () {
     it('should change location to /home', function() {
         scope.username = "user";
         scope.password = "password";
-        scope.validate();
-        expect(locationMock.path.calledWith('/home')).to.be.true;
+        loginController.validate();
+        
+expect(locationMock.path.calledWith('/home')).to.be.true;
     });
     describe('state change listener', function(){
         it('should prevent direct entry to home page', function() {
 rootScope.$broadcast('$stateChangeStart', event, toState);
-  expect(scope.route).to.equal('success');
+  expect(loginController.route).to.equal('success');
         });
     });
 });

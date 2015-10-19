@@ -1,7 +1,12 @@
 app.controller("loginController", ["$scope", "$location","users","$state","$rootScope", function ($scope, $location,users,$state,$rootScope) {
     "use strict";
-    $scope.route = "failure";
-    $scope.validate = function () {
+    (function init(vm){
+        angular.extend(vm, {
+            route: "failure",
+            validate: validate
+        });
+    
+    function validate() {
         if ($scope.username === users.name && $scope.password === users.password) {
             users.loggedin = "true";
             $location.path("/home");
@@ -12,7 +17,7 @@ app.controller("loginController", ["$scope", "$location","users","$state","$root
     };
     
     $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
-        $scope.route = "success";
+        vm.route = "success";
         if (users.loggedin==="false"  && toState.url==="/home") {
             event.preventDefault();
             $location.path("/");
@@ -21,6 +26,6 @@ app.controller("loginController", ["$scope", "$location","users","$state","$root
             $location.path("/");
        }
     });
-    
+    }(this));
 }]);
 
