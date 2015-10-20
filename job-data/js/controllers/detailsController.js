@@ -1,10 +1,10 @@
-app.controller("detailsController", ["$scope", "getData","$rootScope","$location","$state","$timeout", function ($scope, getData, $rootScope, $location, $state,$timeout) {
+app.controller("detailsController", ["$scope", "getData", "$rootScope", "$location", "$state", "$timeout", function ($scope, getData, $rootScope, $location, $state, $timeout) {
     "use strict";
     (function init(vm) {
         getData.retrieve("http://nodejs-qbjsstudy.rhcloud.com/api/get_job_data");
-        $timeout(function(){
+        $timeout(function () {
             vm.jobDetails = getData.data;
-        },200);
+        }, 200);
         angular.extend(vm, {
             visible: false,
             type: getData.selected,
@@ -18,7 +18,7 @@ app.controller("detailsController", ["$scope", "getData","$rootScope","$location
             vm.expLevel = receivedData.experianceLevel;
             vm.expYrs = receivedData.experianceYears;
             vm.vacancy = receivedData.numberOfVacencies;
-            vm.qualification = receivedData.qualification;  
-        };
+            vm.qualification = receivedData.qualification;
+        }
     }(this));
 }]);
